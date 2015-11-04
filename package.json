@@ -2,34 +2,38 @@
   "name": "shortly-express",
   "version": "0.0.1",
   "description": "shortly using express",
-  "main": "shortly.js",
+  "main": "index.js",
   "repository": "",
   "license": "Proprietary",
   "private": true,
   "scripts": {
-    "start": "./node_modules/.bin/nodemon --ignore node_modules shortly.js",
-    "test": "node shortly.js & ./node_modules/.bin/mocha --bail --reporter nyan test/ServerSpec.js; pkill -n node;"
+    "start": "node index.js"
   },
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
-    "bluebird": "1.0.8",
-    "body-parser": "^1.5.2",
-    "bookshelf": "~0.6.4",
-    "chai": "^1.9.0",
-    "ejs": "~0.8.5",
-    "express": "~4.0.0",
-    "express-partials": "~0.2.0",
-    "express-session": "^1.7.2",
-    "forever": "^0.10.11",
     "knex": "~0.5.7",
+    "bookshelf": "~0.6.4",
+    "sqlite3": "~3.0.5",
+    "express": "~3.4.8",
+    "express-partials": "~0.2.0",
+    "ejs": "~0.8.5",
     "mocha": "^1.17.1",
-    "nodemon": "^1.2.1",
-    "passport": "^0.3.0",
-    "passport-github": "^1.0.0",
     "request": "^2.34.0",
-    "sqlite3": "~3.0.5"
+    "chai": "^1.9.0",
+    "forever": "^0.10.11",
+    "bcrypt-nodejs": "0.0.3",
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-concat": "^0.3.0",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-shell": "^0.6.4",
+    "grunt-contrib-cssmin": "^0.9.0",
+    "grunt-nodemon": "^0.2.1",
+    "grunt-mocha-test": "^0.10.0",
+    "mongoose": "~3.8.8",
+    "bluebird": "1.0.8"
   },
-  "engines": {
-    "node": "0.12.0"
+  "devDependencies": {
+    "supertest": "^0.10.0"
   }
 }

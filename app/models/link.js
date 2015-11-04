@@ -1,5 +1,4 @@
 var db = require('../config');
-var Click = require('./click');
 var crypto = require('crypto');
 
 var Link = db.Model.extend({
@@ -7,9 +6,6 @@ var Link = db.Model.extend({
   hasTimestamps: true,
   defaults: {
     visits: 0
-  },
-  clicks: function() {
-    return this.hasMany(Click);
   },
   initialize: function(){
     this.on('creating', function(model, attrs, options){

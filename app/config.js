@@ -29,23 +29,11 @@ db.knex.schema.hasTable('urls').then(function(exists) {
   }
 });
 
-db.knex.schema.hasTable('clicks').then(function(exists) {
-  if (!exists) {
-    db.knex.schema.createTable('clicks', function (click) {
-      click.increments('id').primary();
-      click.integer('link_id');
-      click.timestamps();
-    }).then(function (table) {
-      console.log('Created Table', table);
-    });
-  }
-});
-
 db.knex.schema.hasTable('users').then(function(exists) {
   if (!exists) {
-    db.knex.schema.createTable('users', function(user) {
+    db.knex.schema.createTable('users', function (user) {
       user.increments('id').primary();
-      user.string('username', 100);
+      user.string('username', 100).unique();
       user.string('password', 100);
       user.timestamps();
     }).then(function (table) {
@@ -53,21 +41,5 @@ db.knex.schema.hasTable('users').then(function(exists) {
     });
   }
 });
-
-db.knex.schema.hasTable('github-users').then(function(exists) {
-  if (!exists) {
-    db.knex.schema.createTable('github-users', function (user) {
-      user.increments('id').primary();
-      user.string('githubId', 100);
-    }).then(function (table) {
-      console.log('Created Table', table);
-    });
-  }
-});
-
-/************************************************************/
-// Add additional schema definitions below
-/************************************************************/
-
 
 module.exports = db;
